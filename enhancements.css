@@ -1,0 +1,51 @@
+/* Small visual extensions kept separate from the original compressed stylesheet. */
+
+/* The footer now has a dedicated, quiet social icon group. */
+.site-footer {
+  grid-template-columns: 1fr 1fr 1fr auto auto;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Text-based marks keep the social links dependency-free and readable offline. */
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: lowercase;
+  transition: color .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.social-links a:hover {
+  color: var(--deep);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* Keep the extra footer column comfortable on smaller screens. */
+@media (max-width: 760px) {
+  .site-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social-links {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    justify-content: flex-start;
+  }
+}
